@@ -25,26 +25,49 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 
+
+" PLUGINS
 call plug#begin()
+
+
   " Tree
   Plug 'preservim/nerdtree'
 
-   " IDE
+  " IDE
+  Plug 'preservim/nerdcommenter'
+  Plug 'yggdroot/indentline'
+
+   " Navegator
   Plug 'easymotion/vim-easymotion'
   Plug 'christoomey/vim-tmux-navigator'
 
-  " Themes
-  Plug 'morhetz/gruvbox'
+  " Typing
+  Plug 'alvan/vim-closetag'
+  Plug 'jiangmiao/auto-pairs'
 
-" Autocomplete
+  " Airline
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+
+  " Autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+  " Themes
+  Plug 'morhetz/gruvbox'
+  Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
+
 " Theme
 colorscheme gruvbox
-let g:gruvbox_contrast_dark = "hard"
+
+
+
+" Status Bar Config
+let g:lightline = {
+      \ 'colorscheme': "deus",
+      \ }
 
 
 " Shortcuts
@@ -63,3 +86,14 @@ let NERDTreeShowLineNumbers=1
 " Coc
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Comenter
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 2 
+let g:NERDCompactSexyComs = 1
+
+" Airline Config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'ouo'
+nnoremap <TAB> :bnext<CR>
