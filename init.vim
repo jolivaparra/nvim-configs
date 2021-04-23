@@ -37,7 +37,7 @@ call plug#begin()
   Plug 'preservim/nerdcommenter'
   Plug 'yggdroot/indentline'
 
-   " Navegator
+  " Navegator
   Plug 'easymotion/vim-easymotion'
   Plug 'christoomey/vim-tmux-navigator'
 
@@ -45,35 +45,28 @@ call plug#begin()
   Plug 'alvan/vim-closetag'
   Plug 'jiangmiao/auto-pairs'
 
-  " Airline
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-
   " Autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Themes
   Plug 'morhetz/gruvbox'
-  Plug 'itchyny/lightline.vim'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
 
 " Theme
 colorscheme gruvbox
-
-
-
-" Status Bar Config
-let g:lightline = {
-      \ 'colorscheme': "deus",
-      \ }
+" Airline Theme
+let g:airline_theme = 'ouo'
 
 
 " Shortcuts
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
+
 
 " Easymotion shortcut
 nmap <leader>s <Plug>(easymotion-s2)
@@ -94,6 +87,12 @@ let g:NERDCompactSexyComs = 1
 
 " Airline Config
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'ouo'
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline_section_x=''
+let g:airline_skip_empty_sections = 1
+
+
 nnoremap <TAB> :bnext<CR>
+nnoremap <leader><TAB> :ls<CR>
+nnoremap <leader>e :AirlineTheme 
