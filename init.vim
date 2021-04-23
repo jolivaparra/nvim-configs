@@ -1,6 +1,31 @@
+" CONFIGURATION
+let mapleader=" "      			" Define the key leader
+set encoding=utf-8			" The encoding displayed
+set fileencoding=utf-8                  " The encoding written to file
+set t_Co=256                            " Support 256 colors
+syntax on 				" Enables the syntax highlighting
+set hidden				" Required to keep multiple buffers open multiple buffers
+set shiftwidth=2                        " Change the number of space characters inserted for indentation
+set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
+set showtabline				" Always show tabs
+set smartindent                         " Makes indenting smart
+set autoindent                          " Good auto indent
+set sw=2	                        " Insert 2 spaces for a tab
+set ruler              			" Show the cursor position all the time
+set cursorline				" Enable highlighting of the current line
+set number				" Line Numbers
+set relativenumber			" Show relative lines
+set mouse=a				" Enable the mouse
+set clipboard=unnamed			" Enabled the clipboard
+set splitright                          " Vertical splits will automatically be to the right
+set splitbelow                          " Horizontal splits will automatically be below
+set pumheight=10                        " Makes popup menu smaller
+set noshowmode				" To dont see the modes, cause it's not necesary anymore
+set nobackup                            " This is recommended by coc
+set nowritebackup                       " This is recommended by coc
+set timeoutlen=500                      " By default timeoutlen is 1000 ms
+
 call plug#begin()
-
-
   " Tree
   Plug 'preservim/nerdtree'
 
@@ -13,26 +38,9 @@ call plug#begin()
 
 " Autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
- 
+
 
 call plug#end()
-
-" CONFIGURATION
-
-" Tabulation numbers
-set sw=2
-
-" Line number
-set number
-set relativenumber
-set numberwidth=2
-
-" Out of keyboard
-set mouse=a
-set clipboard=unnamed
-
-" Codification
-set encoding=utf-8
 
 " Theme
 colorscheme gruvbox
@@ -40,23 +48,18 @@ let g:gruvbox_contrast_dark = "hard"
 
 
 " Shortcuts
-let mapleader=" "
-
-nmap <leader>q :q<CR>
-nmap <leader>w :w<CR>
-nmap <leader>wq :wq<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>wq :wq<CR>
 
 " Easymotion shortcut
 nmap <leader>s <Plug>(easymotion-s2)
 
 " NERDTree 
-nmap <leader>a :NERDTree<CR>
+nnoremap <leader>a :NERDTree<CR>
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowLineNumbers=1
 
-
-
-
-
-
-
+" Coc
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
