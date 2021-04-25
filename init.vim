@@ -23,7 +23,7 @@ set pumheight=10                        " Makes popup menu smaller
 set noshowmode				" To dont see the modes, cause it's not necesary anymore
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
-set timeoutlen=500                      " By default timeoutlen is 1000 ms
+set timeoutlen=400                      " By default timeoutlen is 1000 ms
 
 
 " PLUGINS
@@ -37,6 +37,10 @@ call plug#begin()
   Plug 'preservim/nerdcommenter'
   Plug 'yggdroot/indentline'
 
+  " Buffers
+  Plug 'vim-airline/vim-airline'
+  Plug 'kien/ctrlp.vim'
+
   " Navegator
   Plug 'easymotion/vim-easymotion'
   Plug 'christoomey/vim-tmux-navigator'
@@ -44,37 +48,49 @@ call plug#begin()
   " Typing
   Plug 'alvan/vim-closetag'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-surround'
 
   " Autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-  " Themes
-  Plug 'morhetz/gruvbox'
+" Themes
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'vim-airline/vim-airline'
+  Plug 'morhetz/gruvbox'
 
 call plug#end()
 
 
 " Theme
 colorscheme gruvbox
+
 " Airline Theme
 let g:airline_theme = 'ouo'
 
 
 " Shortcuts
-nnoremap <leader>q :q<CR>
-nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>              
+nnoremap <leader>w :w<CR>	
 nnoremap <leader>wq :wq<CR>
 
-
-" Easymotion shortcut
-nmap <leader>s <Plug>(easymotion-s2)
+" Faster Scrolling
+nmap s <Plug>(easymotion-overwin-f2)
+ 
+" Buffers
+nnoremap <TAB>h :bprev<CR>	
+nnoremap <TAB>j :bd<CR>
+nnoremap <TAB>k :buffers!<CR>:buffer<Space>
+nnoremap <TAB>l :bnext<CR>	
+nnoremap <TAB>p :CtrlP<CR>
+nnoremap <TAB>P :CtrlPClearCache<CR>:CtrlP<CR>
+nnoremap <leader>r :source C:\Users\Joshua\AppData\Local\nvim\init.vim<CR>
 
 " NERDTree 
-nnoremap <leader>a :NERDTree<CR>
-let NERDTreeQuitOnOpen=1
-let NERDTreeShowLineNumbers=1
+nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <leader>F :NERDTreeToggle<Space>
+let NERDTreeQuitOnOpen = 1
+let NERDTreeShowLineNumbers = 1
+let NERDTreeWinSize = 30
+let NERDTreeMinimalUI = 1
 
 " Coc
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -94,6 +110,4 @@ let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
 
-nnoremap <TAB> :bnext<CR>
-nnoremap <leader><TAB> :ls<CR>
-nnoremap <leader>e :AirlineTheme 
+
