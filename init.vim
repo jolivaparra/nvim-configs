@@ -66,11 +66,39 @@ colorscheme gruvbox
 " Airline Theme
 let g:airline_theme = 'ouo'
 
+" Wrongs Shortcuts
+nnoremap <Left>  :echoe "Misuse of Shortcut: Use 'h'"<CR>
+nnoremap <Right> :echoe "Misuse of Shortcut: Use 'l'"<CR>
+nnoremap <Up>    :echoe "Misuse of Shortcut: Use 'k'"<CR>
+nnoremap <Down>  :echoe "Misuse of Shortcut: Use 'j'"<CR>
+inoremap <Left>  <ESC>:echoe "Misuse of Shortcut: Use 'h'"<CR>
+inoremap <Right> <ESC>:echoe "Misuse of Shortcut: Use 'l'"<CR>
+inoremap <Up>    <ESC>:echoe "Misuse of Shortcut: Use 'k'"<CR>
+inoremap <Down>  <ESC>:echoe "Misuse of Shortcut: Use 'j'"<CR>
+inoremap <ESC>   <nop>
+nnoremap <leader>w <nop>
 
-" Shortcuts
+
+" Shortcuts Normal Mode
+nnoremap <C-s> :w<CR>
+nnoremap <S-j> 10gj
+nnoremap <S-k> 10gk
 nnoremap <leader>q :q<CR>              
-nnoremap <leader>w :w<CR>	
-nnoremap <leader>wq :wq<CR>
+nnoremap B ^
+nnoremap E $
+nnoremap j gj
+nnoremap k gk
+" Shortcuts Visual Mode
+vnoremap jk <ESC>
+vnoremap <S-j> 10gj
+vnoremap <S-k> 10gk
+vnoremap E $
+vnoremap B ^
+vnoremap j gj
+vnoremap k gk
+" Shortcuts Insert Mode
+inoremap jk <ESC>
+inoremap <C-s> <ESC>:w<CR>
 
 " Faster Scrolling
 nmap s <Plug>(easymotion-overwin-f2)
@@ -82,7 +110,6 @@ nnoremap <TAB>k :buffers!<CR>:buffer<Space>
 nnoremap <TAB>l :bnext<CR>	
 nnoremap <TAB>p :CtrlP<CR>
 nnoremap <TAB>P :CtrlPClearCache<CR>:CtrlP<CR>
-nnoremap <leader>r :source C:\Users\Joshua\AppData\Local\nvim\init.vim<CR>
 
 " NERDTree 
 nnoremap <leader>f :NERDTreeFind<CR>
@@ -108,6 +135,5 @@ let g:airline#extensions#tabline#show_tabs = 0
 let g:airline_powerline_fonts = 1
 let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
-
 
 
